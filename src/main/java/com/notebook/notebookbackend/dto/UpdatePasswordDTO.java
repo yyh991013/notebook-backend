@@ -1,15 +1,14 @@
 package com.notebook.notebookbackend.dto;
 
-import com.alibaba.fastjson.annotation.JSONField;
 
+/**
+ * @author 22454
+ */
 public class UpdatePasswordDTO {
-    @JSONField(name = "name")
     private String username;
 
-    @JSONField(name = "old")
     private String oldPassword;
 
-    @JSONField(name = "new")
     private String newPassword;
 
     public UpdatePasswordDTO(String username, String oldPassword, String newPassword) {
@@ -18,7 +17,8 @@ public class UpdatePasswordDTO {
         this.newPassword = newPassword;
     }
 
-    public UpdatePasswordDTO() {}
+    public UpdatePasswordDTO() {
+    }
 
     public String getUsername() {
         return username;

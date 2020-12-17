@@ -1,18 +1,13 @@
 package com.notebook.notebookbackend.dto;
 
-import com.alibaba.fastjson.annotation.JSONField;
 
 public class RegisterDTO {
-    @JSONField(name = "name")
     private String username;
 
-    @JSONField(name = "password")
     private String password;
 
-    @JSONField(name = "phone")
     private String phone;
 
-    @JSONField(name = "email")
     private String email;
 
     public RegisterDTO(String username, String password, String phone, String email) {
@@ -22,7 +17,8 @@ public class RegisterDTO {
         this.email = email;
     }
 
-    public RegisterDTO() {}
+    public RegisterDTO() {
+    }
 
     public String getUsername() {
         return username;

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notebook.notebookbackend.data.database.dao.RecordDOMapper">
+  <resultMap id="BaseResultMap" type="com.notebook.notebookbackend.data.database.DO.RecordDO">
+    <id column="record_id" jdbcType="INTEGER" property="recordId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="sort_name" jdbcType="VARCHAR" property="sortName" />
+    <result column="record_title" jdbcType="VARCHAR" property="recordTitle" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.notebook.notebookbackend.data.database.DO.RecordDO">
+    <result column="record_content" jdbcType="LONGVARCHAR" property="recordContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    record_id, user_id, sort_name, record_title
+  </sql>
+  <sql id="Blob_Column_List">
+    record_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.notebook.notebookbackend.data.database.DO.RecordDO">
+    insert into record (record_id, user_id, sort_name, 
+      record_title, record_content)
+    values (#{recordId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{sortName,jdbcType=VARCHAR}, 
+      #{recordTitle,jdbcType=VARCHAR}, #{recordContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.notebook.notebookbackend.data.database.DO.RecordDO">
+    insert into record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sortName != null">
+        sort_name,
+      </if>
+      <if test="recordTitle != null">
+        record_title,
+      </if>
+      <if test="recordContent != null">
+        record_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="sortName != null">
+        #{sortName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTitle != null">
+        #{recordTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="recordContent != null">
+        #{recordContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.notebook.notebookbackend.data.database.DO.RecordDO">
+    update record
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="sortName != null">
+        sort_name = #{sortName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTitle != null">
+        record_title = #{recordTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="recordContent != null">
+        record_content = #{recordContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.notebook.notebookbackend.data.database.DO.RecordDO">
+    update record
+    set user_id = #{userId,jdbcType=INTEGER},
+      sort_name = #{sortName,jdbcType=VARCHAR},
+      record_title = #{recordTitle,jdbcType=VARCHAR},
+      record_content = #{recordContent,jdbcType=LONGVARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.notebook.notebookbackend.data.database.DO.RecordDO">
+    update record
+    set user_id = #{userId,jdbcType=INTEGER},
+      sort_name = #{sortName,jdbcType=VARCHAR},
+      record_title = #{recordTitle,jdbcType=VARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

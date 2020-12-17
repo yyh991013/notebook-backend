@@ -1,15 +1,15 @@
 package com.notebook.notebookbackend.dto;
 
-import com.alibaba.fastjson.annotation.JSONField;
 
+/**
+ * @author 22454
+ */
 public class UpdatePhoneDTO {
-    @JSONField(name = "name")
+
     private String username;
 
-    @JSONField(name = "password")
     private String password;
 
-    @JSONField(name = "phone")
     private String phone;
 
     public UpdatePhoneDTO(String username, String password, String phone) {
@@ -18,7 +18,8 @@ public class UpdatePhoneDTO {
         this.phone = phone;
     }
 
-    public UpdatePhoneDTO() {}
+    public UpdatePhoneDTO() {
+    }
 
     public String getUsername() {
         return username;

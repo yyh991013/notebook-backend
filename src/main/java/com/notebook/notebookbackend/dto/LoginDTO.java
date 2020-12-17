@@ -1,12 +1,8 @@
 package com.notebook.notebookbackend.dto;
 
-import com.alibaba.fastjson.annotation.JSONField;
 
 public class LoginDTO {
-    @JSONField(name = "name")
     private String username;
-
-    @JSONField(name = "password")
     private String password;
 
     public LoginDTO(String username, String password) {
@@ -14,7 +10,8 @@ public class LoginDTO {
         this.password = password;
     }
 
-    public LoginDTO() {}
+    public LoginDTO() {
+    }
 
     public String getUsername() {
         return username;

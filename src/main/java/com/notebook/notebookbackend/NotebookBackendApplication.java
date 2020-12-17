@@ -7,8 +7,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 public class NotebookBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(NotebookBackendApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(NotebookBackendApplication.class, args);
+    }
 
 }
