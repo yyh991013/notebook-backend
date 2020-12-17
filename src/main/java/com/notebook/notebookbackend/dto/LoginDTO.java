@@ -1,24 +1,27 @@
 package com.notebook.notebookbackend.dto;
 
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotNull;
+
+/**
+ * @author 22454
+ */
 public class LoginDTO {
-    private String username;
+    @NotNull
+    @Length(min = 6, max = 30)
+    private String userName;
+    @NotNull
+    @Length(min = 32, max = 32)
     private String password;
 
-    public LoginDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public String getUserName() {
+        return userName;
     }
 
-    public LoginDTO() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -27,5 +30,13 @@ public class LoginDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginDTO{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

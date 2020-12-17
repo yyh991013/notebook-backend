@@ -6,27 +6,18 @@ package com.notebook.notebookbackend.dto;
  */
 public class UpdatePhoneDTO {
 
-    private String username;
+    private String userName;
 
     private String password;
 
     private String phone;
 
-    public UpdatePhoneDTO(String username, String password, String phone) {
-        this.username = username;
-        this.password = password;
-        this.phone = phone;
+    public String getUserName() {
+        return userName;
     }
 
-    public UpdatePhoneDTO() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -43,5 +34,14 @@ public class UpdatePhoneDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "UpdatePhoneDTO{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

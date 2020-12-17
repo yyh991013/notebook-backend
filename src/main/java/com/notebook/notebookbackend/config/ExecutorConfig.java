@@ -23,7 +23,7 @@ public class ExecutorConfig {
 
     @Bean
     public Executor asyncServiceExecutor() {
-        ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
+        ThreadPoolTaskExecutor executor = new VisibleThreadPoolTaskExecutor();
         //配置核心线程数
         executor.setCorePoolSize(10);
         //配置最大线程数
@@ -39,7 +39,7 @@ public class ExecutorConfig {
         return executor;
     }
 
-    private static final class VisiableThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
+    private static final class VisibleThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
         private void showThreadPoolInfo(String prefix) {
             ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();
             if (threadPoolExecutor == null) {

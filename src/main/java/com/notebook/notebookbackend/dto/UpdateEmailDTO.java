@@ -1,28 +1,22 @@
 package com.notebook.notebookbackend.dto;
 
 
+/**
+ * @author 22454
+ */
 public class UpdateEmailDTO {
-    private String username;
+    private String userName;
 
     private String password;
 
     private String email;
 
-    public UpdateEmailDTO(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
+    public String getUserName() {
+        return userName;
     }
 
-    public UpdateEmailDTO() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -39,5 +33,14 @@ public class UpdateEmailDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "UpdateEmailDTO{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

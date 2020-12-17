@@ -1,8 +1,11 @@
 package com.notebook.notebookbackend.dto;
 
 
+/**
+ * @author 22454
+ */
 public class RegisterDTO {
-    private String username;
+    private String userName;
 
     private String password;
 
@@ -10,22 +13,12 @@ public class RegisterDTO {
 
     private String email;
 
-    public RegisterDTO(String username, String password, String phone, String email) {
-        this.username = username;
-        this.password = password;
-        this.phone = phone;
-        this.email = email;
+    public String getUserName() {
+        return userName;
     }
 
-    public RegisterDTO() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -50,5 +43,15 @@ public class RegisterDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "RegisterDTO{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

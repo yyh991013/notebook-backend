@@ -14,7 +14,14 @@ public enum EmBusinessErr implements CommonError {
     UNKNOWN_ERROR(1002, "未知错误"),
     PERMISSION_DENIED(1003, "无权限"),
     NOT_LOGIN_USER(1004, "未登录"),
-    ;
+    FAILED_TO_CREATE_TOKEN(1005, "创建 Token 失败"),
+    FAILED_TO_FRESH_TOKEN(1006, "刷新 Token 失败"),
+    TOKEN_IS_EMPTY(1007, "请求中含有无效 Token"),
+    FAILED_TO_PARSE_TOKEN(1008, "解析 Token 失败"),
+
+    LOGIN_ERROR(2001, "登录异常"),
+    REGISTERED_ERROR(2002, "注册异常"),
+    USERNAME_OCCUPATION(2003, "用户名占用");
 //
 
 
