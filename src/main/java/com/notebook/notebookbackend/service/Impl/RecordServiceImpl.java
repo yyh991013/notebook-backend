@@ -66,9 +66,9 @@ public class RecordServiceImpl implements RecordService {
                 int id = user.getUserId();
                 RecordDO record = new RecordDO();
                 record.setUserId(id);
-                record.setRecordTitle(record.getRecordTitle());
-                record.setSortName(record.getSortName());
-                record.setRecordContent(record.getRecordContent());
+                record.setRecordTitle(recordAddData.getTitle());
+                record.setSortName(recordAddData.getSort());
+                record.setRecordContent(recordAddData.getContent());
 
                 int result = recordDOMapper.insertSelective(record);
                 if (result == 0) {
@@ -107,6 +107,9 @@ public class RecordServiceImpl implements RecordService {
             RecordDO record = recordDOMapper.selectByPrimaryKey(recordEditData.getId());
 
             if (record != null) {
+                record.setSortName(recordEditData.getSort());
+                record.setRecordTitle(recordEditData.getTitle());
+                record.setRecordContent(recordEditData.getContent());
                 int result = recordDOMapper.updateByPrimaryKeySelective(record);
                 if (result != 0) {
                     return result;
