@@ -31,7 +31,7 @@ public enum EmBusinessErr implements CommonError {
     FAILED_TO_UPDATE_PASSWORD(2009, "修改密码失败"),
     FAILED_TO_UPDATE_PHONE(2010, "修改手机号失败"),
     FAILED_TO_UPDATE_EMAIL(2011, "修改邮箱失败"),
-    FAILED_TO_GET_EMAIL(2012, "获取邮箱失败");
+    FAILED_TO_GET_EMAIL(2012, "获取邮箱失败"),
 
     INVALID_RECORD_ID(3001, "无效的记录ID"),
     FAILED_RECORD_INSERTION(3002, "记录插入失败");
