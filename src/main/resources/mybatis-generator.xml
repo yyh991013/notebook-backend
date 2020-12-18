@@ -53,16 +53,16 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
-        <!--        <table tableName="record" domainObjectName="RecordDO"-->
-        <!--               enableCountByExample="false" enableUpdateByExample="false"-->
-        <!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--               selectByExampleQueryId="false">-->
-        <!--        </table>-->
-        <!--        <table tableName="user" domainObjectName="UserDO"-->
-        <!--               enableCountByExample="false" enableUpdateByExample="false"-->
-        <!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--               selectByExampleQueryId="false">-->
-        <!--        </table>-->
+        <!--                <table tableName="record" domainObjectName="RecordDO"-->
+        <!--                       enableCountByExample="false" enableUpdateByExample="false"-->
+        <!--                       enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--                       selectByExampleQueryId="false">-->
+        <!--                </table>-->
+        <!--                <table tableName="user" domainObjectName="UserDO"-->
+        <!--                       enableCountByExample="false" enableUpdateByExample="false"-->
+        <!--                       enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--                       selectByExampleQueryId="false">-->
+        <!--                </table>-->
 
     </context>
 </generatorConfiguration>

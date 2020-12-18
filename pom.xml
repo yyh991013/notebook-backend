@@ -205,7 +205,6 @@
                     <verbose>true</verbose>
                     <!--允许自动覆盖文件-->
                     <overwrite>true</overwrite>
-
                     <configurationFile>
                         src/main/resources/mybatis-generator.xml
                     </configurationFile>

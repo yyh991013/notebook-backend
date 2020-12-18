@@ -21,7 +21,8 @@ public enum EmBusinessErr implements CommonError {
 
     LOGIN_ERROR(2001, "登录异常"),
     REGISTERED_ERROR(2002, "注册异常"),
-    USERNAME_OCCUPATION(2003, "用户名占用");
+    USERNAME_OCCUPATION(2003, "用户名占用"),
+    FAILED_TO_CREATE_VERIFICATION_CODE(2004, "生成验证码失败");
 //
 
 
