@@ -33,7 +33,8 @@ public class LogInterceptor implements HandlerInterceptor {
             "http://localhost:8080/error",
             "http://localhost:8080/user/login",
             "http://localhost:8080/user/registered",
-            "http://localhost:8080/user/getVerificationCode"
+            "http://localhost:8080/user/getRegisteredVerificationCode",
+            "http://localhost:8080/user/getUpdatePasswordVerificationCode"
     };
 
     @Override

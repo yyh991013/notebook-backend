@@ -1,23 +1,24 @@
 package com.notebook.notebookbackend.dto;
 
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author 22454
  */
 public class UpdateEmailDTO {
-    private String userName;
-
+    @NotNull
+    @NotBlank(message = "密码不能为空")
+    @Length(min = 32, max = 32)
     private String password;
-
+    @NotNull
+    @NotBlank(message = "邮箱不能为空")
+    @Email(message = "邮箱格式错误")
     private String email;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public String getPassword() {
         return password;
@@ -38,8 +39,7 @@ public class UpdateEmailDTO {
     @Override
     public String toString() {
         return "UpdateEmailDTO{" +
-                "userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
+                "password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

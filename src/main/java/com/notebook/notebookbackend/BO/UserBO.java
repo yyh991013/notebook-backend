@@ -8,6 +8,8 @@ public class UserBO {
 
     private String userPassword;
 
+    private String userEmail;
+
     public String getUserName() {
         return userName;
     }
@@ -24,11 +26,20 @@ public class UserBO {
         this.userPassword = userPassword;
     }
 
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
     @Override
     public String toString() {
         return "UserBO{" +
                 "userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
+                ", email='" + userEmail + '\'' +
                 '}';
     }
 }

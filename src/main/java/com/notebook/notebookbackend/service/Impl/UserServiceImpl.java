@@ -65,4 +65,86 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(EmBusinessErr.REGISTERED_ERROR);
         }
     }
+
+    @Override
+    public void updatePassword(String userName, String oldPassword, String newPassword) throws BusinessException {
+        try {
+            UserBO userBO = userDOMapper.selectByUserName(userName);
+            String encryptOldPassword = Md5Util.getMd5(oldPassword);
+            if (userBO != null && encryptOldPassword.equals(userBO.getUserPassword())) {
+                String encryptNewPassword = Md5Util.getMd5(newPassword);
+                int tag = userDOMapper.updatePasswordByUserName(userName, encryptOldPassword, encryptNewPassword);
+                if (tag != 0) {
+                    return;
+                }
+            }
+            throw new Exception();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (e instanceof BusinessException) {
+                throw (BusinessException) e;
+            }
+            throw new BusinessException(EmBusinessErr.FAILED_TO_UPDATE_PASSWORD);
+        }
+    }
+
+    @Override
+    public void updatePhone(String userName, String password, String phone) throws BusinessException {
+        try {
+            UserBO userBO = userDOMapper.selectByUserName(userName);
+            String encryptPassword = Md5Util.getMd5(password);
+            if (userBO != null && encryptPassword.equals(userBO.getUserPassword())) {
+                int tag = userDOMapper.updatePhoneByUserName(userName, phone);
+                if (tag != 0) {
+                    return;
+                }
+            }
+            throw new Exception();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (e instanceof BusinessException) {
+                throw (BusinessException) e;
+            }
+            throw new BusinessException(EmBusinessErr.FAILED_TO_UPDATE_PHONE);
+        }
+    }
+
+    @Override
+    public void updateEmail(String userName, String password, String email) throws BusinessException {
+        try {
+            UserBO userBO = userDOMapper.selectByUserName(userName);
+            String encryptPassword = Md5Util.getMd5(password);
+            if (userBO != null && encryptPassword.equals(userBO.getUserPassword())) {
+                int tag = userDOMapper.updateEmailByUserName(userName, email);
+                if (tag != 0) {
+                    return;
+                }
+            }
+            throw new Exception();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (e instanceof BusinessException) {
+                throw (BusinessException) e;
+            }
+            throw new BusinessException(EmBusinessErr.FAILED_TO_UPDATE_EMAIL);
+        }
+    }
+
+    @Override
+    public String getEmailByUserName(String userName) throws BusinessException {
+        try {
+            UserBO userBO = userDOMapper.selectByUserName(userName);
+            System.out.println(userBO);
+            if (userBO != null && userBO.getUserEmail() != null) {
+                return userBO.getUserEmail();
+            }
+            throw new Exception();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (e instanceof BusinessException) {
+                throw (BusinessException) e;
+            }
+            throw new BusinessException(EmBusinessErr.FAILED_TO_GET_EMAIL);
+        }
+    }
 }

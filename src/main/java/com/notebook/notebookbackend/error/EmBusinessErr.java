@@ -22,7 +22,15 @@ public enum EmBusinessErr implements CommonError {
     LOGIN_ERROR(2001, "登录异常"),
     REGISTERED_ERROR(2002, "注册异常"),
     USERNAME_OCCUPATION(2003, "用户名占用"),
-    FAILED_TO_CREATE_VERIFICATION_CODE(2004, "生成验证码失败");
+    FAILED_TO_CREATE_VERIFICATION_CODE(2004, "生成验证码失败"),
+    VERIFICATION_HAS_SEND(2005, "验证码已发送"),
+    ERROR_VERIFICATION_CODE(2006, "验证码错误"),
+    VERIFICATION_TYPE_ERROR(2007, "验证码类型错误"),
+    WRONG_PASSWORD(2008, "密码错误"),
+    FAILED_TO_UPDATE_PASSWORD(2009, "修改密码失败"),
+    FAILED_TO_UPDATE_PHONE(2010, "修改手机号失败"),
+    FAILED_TO_UPDATE_EMAIL(2011, "修改邮箱失败"),
+    FAILED_TO_GET_EMAIL(2012, "获取邮箱失败");
 //
 
 
