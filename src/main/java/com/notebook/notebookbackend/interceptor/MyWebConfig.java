@@ -14,14 +14,7 @@ import javax.annotation.Resource;
 public class MyWebConfig implements WebMvcConfigurer {
     @Resource
     private LogInterceptor logInterceptor;
-//    @Resource
-//    private UserLoginInterceptor userLoginInterceptor;
-//
 
-//    private final String[] studentLoginPath = {"/student/**"};
-//    private final String[] studentLoginExcludePath = {"/student/studentLogin", "/student/studentRegistered"};
-//    private final String[] teacherLoginPath = {"/teacher/**"};
-//    private final String[] teacherLoginExcludePath = {"/teacher/teacherLogin", "/teacher/teacherRegistered"};
 
     /**
      * 拦截器注册

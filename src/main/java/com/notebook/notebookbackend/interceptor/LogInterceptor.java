@@ -24,7 +24,6 @@ public class LogInterceptor implements HandlerInterceptor {
      * 部署的时候，将最大权限通配符注释掉，保留注册/登录接口即可
      */
     private static final String[] NOT_CHECK_URL = {
-
             "http://localhost:8080/swagger-ui.html",
             "http://localhost:8080/webjars/**",
             "http://localhost:8080/swagger-resources/**",
@@ -33,8 +32,9 @@ public class LogInterceptor implements HandlerInterceptor {
             "http://localhost:8080/",
             "http://localhost:8080/error",
             "http://localhost:8080/user/login",
-            "http://localhost:8080/user/registered"
-//            "http://localhost:8080/**"
+            "http://localhost:8080/user/registered",
+            "http://localhost:8080/user/getRegisteredVerificationCode",
+            "http://localhost:8080/user/getUpdatePasswordVerificationCode"
     };
 
     @Override
@@ -49,12 +49,16 @@ public class LogInterceptor implements HandlerInterceptor {
             }
             MyLog.warn("不是NOT CHECK URL");
             MyLog.error("token is empty");
-            //TODO 改成状态码 401
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             return false;
         }
         Claims claims = TokenUtil.parseToken(token);
-        return claims != null && !claims.isEmpty() && !TokenUtil.isExpired(token);
+        if (claims != null && !claims.isEmpty() && !TokenUtil.isExpired(token)) {
+            return true;
+        } else {
+            response.setStatus(HttpStatus.BAD_REQUEST.value());
+            return false;
+        }
     }
 
     private boolean isNotCheckUrl(String url) {

@@ -5,12 +5,15 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-@Component
+/**
+ * @author 22454
+ */
+
 public class Redis {
     private final StringRedisTemplate redis;
 
-    @Autowired
     public Redis(StringRedisTemplate redis) {
         this.redis = redis;
     }
@@ -19,11 +22,28 @@ public class Redis {
         return redis.opsForValue().get(key);
     }
 
-    public void set(String key, String value) {
+    public void put(String key, String value) {
         redis.opsForValue().set(key, value);
     }
 
-    public void set(String key, String value, Duration expire) {
+    public void put(String key, String value, Duration expire) {
         redis.opsForValue().set(key, value, expire);
+    }
+
+    public void put(String key, String value, long timeout) {
+        redis.opsForValue().set(key, value, timeout);
+    }
+
+    public void remove(String key) {
+        redis.delete(key);
+    }
+
+    public void setExpire(String key, long timeout) {
+        redis.expire(key, timeout, TimeUnit.SECONDS);
+    }
+
+    public boolean exists(String key) {
+        String value = get(key);
+        return value != null;
     }
 }
