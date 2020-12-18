@@ -4,6 +4,8 @@ package com.notebook.notebookbackend.BO;
  * @author 22454
  */
 public class UserBO {
+    private Integer userId;
+
     private String userName;
 
     private String userPassword;
@@ -37,9 +39,18 @@ public class UserBO {
     @Override
     public String toString() {
         return "UserBO{" +
-                "userName='" + userName + '\'' +
+                "userId=" + userId + "'" +
+                ", userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", email='" + userEmail + '\'' +
                 '}';
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }
