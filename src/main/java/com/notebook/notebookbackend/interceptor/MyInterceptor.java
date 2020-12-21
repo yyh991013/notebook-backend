@@ -18,23 +18,24 @@ import javax.servlet.http.HttpServletResponse;
  * @author 22454
  */
 @Component
-public class LogInterceptor implements HandlerInterceptor {
+public class MyInterceptor implements HandlerInterceptor {
     /**
      * 免查 URL 集合
      * 部署的时候，将最大权限通配符注释掉，保留注册/登录接口即可
      */
     private static final String[] NOT_CHECK_URL = {
-            "http://localhost:8080/swagger-ui.html",
-            "http://localhost:8080/webjars/**",
-            "http://localhost:8080/swagger-resources/**",
-            "http://localhost:8080/null/swagger-resources/configuration/ui",
-            "http://localhost:8080/csrf",
-            "http://localhost:8080/",
-            "http://localhost:8080/error",
-            "http://localhost:8080/user/login",
-            "http://localhost:8080/user/registered",
-            "http://localhost:8080/user/getRegisteredVerificationCode",
-            "http://localhost:8080/user/getUpdatePasswordVerificationCode"
+//            "http://101.200.153.254:8088/swagger-ui.html",
+//            "http://101.200.153.254:8088/webjars/**",
+//            "http://101.200.153.254:8088/swagger-resources/**",
+//            "http://101.200.153.254:8088/null/swagger-resources/configuration/ui",
+//            "http://101.200.153.254:8088/csrf",
+//            "http://101.200.153.254:8088/",
+//            "http://101.200.153.254:8088/error",
+//            "http://101.200.153.254:8088/user/login",
+//            "http://101.200.153.254:8088/user/registered",
+//            "http://101.200.153.254:8088/user/getRegisteredVerificationCode",
+//            "http://101.200.153.254:8088/user/getUpdatePasswordVerificationCode"
+            "http://localhost:8088/**"
     };
 
     @Override

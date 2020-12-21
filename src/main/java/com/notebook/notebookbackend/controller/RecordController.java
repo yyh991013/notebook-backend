@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author yyh
+ */
 @RestController
-@RequestMapping("/record")
 public class RecordController {
     private final RecordService recordService;
 

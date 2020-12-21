@@ -36,7 +36,7 @@ public class UserController {
 
     @GetMapping("/getRegisteredVerificationCode")
     public CommonResponse getRegisteredVerificationCode(@RequestParam("email") String key) throws BusinessException {
-        generateVerificationCode(key, VerificationCodeType.Registered);
+        generateVerificationCode(key,null, VerificationCodeType.Registered);
         return CommonResponse.success();
     }
 
@@ -44,13 +44,16 @@ public class UserController {
     public CommonResponse getUpdatePasswordVerificationCode(HttpServletRequest request) throws BusinessException {
         String token = request.getHeader(TokenUtil.getTokenHeader());
         String userNameFromToken = TokenUtil.getUserNameFromToken(token);
-        generateVerificationCode(userNameFromToken, VerificationCodeType.UPDATE_PASSWORD);
+        String userName = getUserNameFromToken();
+        String email = userService.getEmailByUserName(userName);
+        generateVerificationCode(userNameFromToken,email, VerificationCodeType.UPDATE_PASSWORD);
         return CommonResponse.success();
     }
 
-    private synchronized void generateVerificationCode(String key, int verificationType) throws BusinessException {
-        String userName = getUserNameFromToken();
-        String email = userService.getEmailByUserName(userName);
+    private synchronized void generateVerificationCode(String key,String email, int verificationType) throws BusinessException {
+       if (email==null){
+           email=key;
+       }
         redisService.getVerificationCode(key, email, verificationType);
     }
 

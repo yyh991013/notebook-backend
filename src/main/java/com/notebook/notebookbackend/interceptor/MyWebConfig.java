@@ -13,18 +13,13 @@ import javax.annotation.Resource;
 @Configuration
 public class MyWebConfig implements WebMvcConfigurer {
     @Resource
-    private LogInterceptor logInterceptor;
-
+    private MyInterceptor myInterceptor;
 
     /**
      * 拦截器注册
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
-//        注册日志信息
-        registry.addInterceptor(logInterceptor).addPathPatterns("/**");
-//        registry.addInterceptor(teacherLoginInterceptor).addPathPatterns(teacherLoginPath).excludePathPatterns(teacherLoginExcludePath);
-//        registry.addInterceptor(adminLoginInterceptor).addPathPatterns(adminLoginPath).excludePathPatterns(adminLoginExcludePath);
+        registry.addInterceptor(myInterceptor).addPathPatterns("/**");
     }
 }
